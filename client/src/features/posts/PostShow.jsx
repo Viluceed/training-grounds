@@ -35,7 +35,10 @@ function PostShow() {
   return (
     <Container className="d-flex justify-content-start">
       <Card className="d-flex justify-content-start p-0 w-100 m-3 text-start">
-        <Card.Header className="fw-bold">{post.title}</Card.Header>
+        <Card.Header className="h3 fw-bold d-flex justify-content-between">
+          {post.title}
+          <Button as={Link} to={`/posts/${post.id}/edit`} variant="primary"> Edit</Button>
+        </Card.Header>
         <Card.Body>
           <p>
             {post.content}

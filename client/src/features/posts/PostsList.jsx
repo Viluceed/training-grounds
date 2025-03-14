@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useNavigate, Link } from 'react-router-dom';
 import { API_URL } from "../../constants"
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
@@ -31,6 +32,13 @@ function PostsList() {
   return (
     <Container>
       <h1 className='text-white'> POSTS </h1>
+      <hr className='border-white border-2' />
+      <Container className='d-flex justify-content-end'>
+        <Button as={Link} to="/posts/new" variant='outline-primary'>
+          Create post
+          <i className='ms-1 bi bi-plus-lg'></i>
+        </Button>
+      </Container>
       <Container className="d-flex justify-content-center flex-wrap">
         {posts.map((post) => (
           <Card key={post.id} className='p-0 m-3 text-start'>
@@ -42,7 +50,7 @@ function PostsList() {
               </Card.Text>
             </Card.Body>
             <Card.Footer className='d-flex justify-content-end'>
-              <Button href={`/posts/${post.id}`} size='sm' variant='outline-primary'>View</Button>
+              <Button as={Link} to={`/posts/${post.id}`} size='sm' variant='outline-primary'>View</Button>
             </Card.Footer>
           </Card>
         ))}
