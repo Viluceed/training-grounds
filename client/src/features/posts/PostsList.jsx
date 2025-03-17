@@ -34,14 +34,20 @@ function PostsList() {
       <h1 className='text-white'> POSTS </h1>
       <hr className='border-white border-2' />
       <Container className='d-flex justify-content-end'>
-        <Button as={Link} to="/posts/new" variant='outline-primary'>
+        <Button as={Link} to="/posts/new" variant='outline-info'>
           Create post
           <i className='ms-1 bi bi-plus-lg'></i>
         </Button>
       </Container>
       <Container className="d-flex justify-content-center flex-wrap">
         {posts.map((post) => (
-          <Card key={post.id} className='p-0 m-3 text-start'>
+          <Card
+            bg='dark'
+            border="info"
+            className='p-0 m-3 text-start'
+            key={post.id}
+            text='white'
+          >
             <Card.Header className='fw-bold'>{post.title}</Card.Header>
             <Card.Body>
               <Card.Title className='fs-6'>Views: {post.views}</Card.Title>
@@ -50,12 +56,12 @@ function PostsList() {
               </Card.Text>
             </Card.Body>
             <Card.Footer className='d-flex justify-content-end'>
-              <Button as={Link} to={`/posts/${post.id}`} size='sm' variant='outline-primary'>View</Button>
+              <Button as={Link} to={`/posts/${post.id}`} size='sm' variant='outline-info'>View</Button>
             </Card.Footer>
           </Card>
         ))}
       </Container>
-    </Container>
+    </Container >
   )
 }
 

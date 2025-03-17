@@ -15,7 +15,6 @@ function NewPostForm() {
     e.preventDefault();
 
     const postData = { title, content };
-    console.log(postData);
     try {
       const response = await fetch(`${API_URL}/posts`, {
         method: "POST",
